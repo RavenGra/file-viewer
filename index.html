@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Link Loader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <input type="url" id="url-input" placeholder="Enter URL (e.g., https://...)">
+        <button id="load-button">Load Site</button>
+        <button id="fullscreen-button">Fullscreen Frame</button>
+    </div>
+    <div class="iframe-container">
+        <iframe id="content-frame" src="about:blank" title="Loaded Content"></iframe>
+    </div>
+    <p class="warning">Note: Many websites (like Google, Facebook, etc.) block being loaded in frames like this for security reasons. They may appear blank or show an error.</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
