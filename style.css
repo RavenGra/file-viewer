@@ -1,0 +1,61 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0;
+}
+
+.controls {
+    padding: 15px;
+    background-color: #e0e0e0;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.controls input[type="url"] {
+    flex-grow: 1; /* Take available space */
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 200px; /* Prevent getting too small */
+}
+
+.controls button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+.iframe-container {
+    flex-grow: 1; /* Take remaining vertical space */
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars on the container */
+    display: flex; /* Needed for iframe to fill height */
+}
+
+#content-frame {
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove default iframe border */
+}
+
+.warning {
+    text-align: center;
+    padding: 5px;
+    font-size: 0.8em;
+    color: #555;
+    background-color: #eee;
+}
