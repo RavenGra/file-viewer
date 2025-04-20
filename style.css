@@ -1,91 +1,128 @@
-/* Import a nicer font (optional, but helps) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
-
+/* === Global Styles & Background === */
 body {
-    /* Use Inter font if loaded, otherwise fallback */
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Nicer font */
     margin: 0;
+    padding: 20px; /* Add padding around everything */
+    min-height: 100vh; /* Ensure gradient covers full height */
+    background: linear-gradient(135deg, #2c3e50 0%, #1a2833 100%); /* Dark Blue/Gray Gradient */
+    background-attachment: fixed; /* Keep gradient fixed during scroll */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure gradient covers full height */
-    /* Dark gradient background similar to the image */
-    background: linear-gradient(to bottom, #3a3d4a, #282c34);
-    color: #e0e0e0; /* Light text color for dark background */
+    align-items: center; /* Center content horizontally */
+    color: #f0f0f0; /* Light default text color for outside the box */
 }
 
-.controls {
-    padding: 15px 20px; /* Slightly more padding */
-    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent dark bar */
-    border-bottom: 1px solid #444; /* Softer border */
+h1 {
+    color: #ffffff; /* White text */
+    text-align: center;
+    margin-top: 20px; /* Adjusted margin */
+    margin-bottom: 10px;
+    font-weight: 300; /* Lighter weight for graceful look */
+    font-size: 2.8em; /* Adjust size as needed */
+    letter-spacing: 1px;
+}
+
+/* === Instructions Box === */
+.instructions {
+    background-color: rgba(255, 255, 255, 0.08); /* Subtle transparent white */
+    color: #e0e0e0;
+    padding: 15px 25px;
+    border-radius: 12px; /* Rounded corners */
+    max-width: 700px;
+    width: 90%;
+    margin: 15px auto; /* Center and space out */
+    text-align: center;
+    font-size: 0.95em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.instructions h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* === Main Content Box === */
+.main-container {
+    background-color: #ffffff; /* White background for the box */
+    padding: 25px;
+    border-radius: 18px; /* Nicely rounded corners */
+    max-width: 950px; /* Limit width */
+    width: 90%; /* Responsive width */
+    margin: 20px auto; /* Center horizontally, add vertical margin */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Softer shadow */
     display: flex;
-    gap: 12px; /* Slightly more gap */
+    flex-direction: column;
+    overflow: hidden; /* Important for keeping content clipped */
+    color: #333; /* Dark text INSIDE the white box */
+    min-height: 65vh; /* Give it some minimum height */
+}
+
+/* === Controls inside the Box === */
+.controls {
+    padding-bottom: 20px; /* Space below controls */
+    border-bottom: 1px solid #eee; /* Separator line */
+    display: flex;
+    gap: 12px;
     align-items: center;
-    flex-wrap: wrap;
-    /* Add a subtle shadow for depth */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    position: relative; /* Needed for potential z-index if elements overlap */
-    z-index: 10; /* Ensure controls are above iframe content */
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 .controls input[type="url"] {
     flex-grow: 1;
     padding: 10px 12px; /* Slightly larger padding */
-    border: 1px solid #555; /* Darker border */
-    border-radius: 6px; /* Rounded corners */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded input */
+    font-size: 1em;
     min-width: 250px;
-    background-color: #333; /* Dark input background */
-    color: #e0e0e0; /* Light text */
-    font-size: 0.95em;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
-.controls input[type="url"]::placeholder {
-    color: #888; /* Lighter placeholder */
+.controls input[type="url"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
 }
 
 .controls button {
-    padding: 10px 18px; /* Match input padding */
+    padding: 10px 18px; /* Slightly larger padding */
     border: none;
-    /* Use a blue accent, adjust hex code if needed */
-    background-color: #4a90e2;
+    background-color: #007bff;
     color: white;
-    border-radius: 6px; /* Rounded corners */
+    border-radius: 8px; /* Rounded button */
     cursor: pointer;
-    font-weight: 500; /* Medium weight */
-    transition: background-color 0.2s ease, transform 0.1s ease; /* Add transform transition */
+    transition: background-color 0.2s ease;
+    font-size: 1em;
+    font-weight: 500;
 }
 
 .controls button:hover {
-    background-color: #3a7bc8; /* Slightly darker blue on hover */
+    background-color: #0056b3;
 }
 
-.controls button:active {
-    transform: scale(0.98); /* Slight shrink effect on click */
-}
-
+/* === Iframe Area === */
 .iframe-container {
-    flex-grow: 1;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    /* Optional: Add slight padding around the frame */
-    /* padding: 10px; */
-    /* Optional: Add rounded corners to the container */
-    /* border-radius: 8px; */
-    /* margin: 10px; */ /* If adding padding/border-radius */
+    flex-grow: 1; /* Take remaining vertical space IN THE BOX */
+    /* Removed fixed height - let flexbox handle it */
+    min-height: 400px; /* Minimum height for the frame area */
+    border-radius: 10px; /* Rounded corners for the frame area */
+    overflow: hidden; /* Clip iframe */
+    margin-top: 20px; /* Space from controls */
+    background-color: #f8f9fa; /* Light background behind iframe */
 }
 
 #content-frame {
     width: 100%;
     height: 100%;
     border: none;
-    background-color: #fff; /* Add a white background while loading/if empty */
+    display: block; /* Prevents tiny gap below iframe */
 }
 
+/* === Warning Text === */
 .warning {
     text-align: center;
-    padding: 8px; /* Slightly more padding */
+    padding: 10px;
+    margin-top: 20px; /* Space above warning */
     font-size: 0.85em;
-    color: #aaa; /* Lighter grey text */
-    background-color: rgba(0, 0, 0, 0.1); /* Subtle dark background */
-    border-top: 1px solid #444; /* Match control border */
+    color: #aaa; /* Lighter gray */
 }
