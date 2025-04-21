@@ -1,36 +1,36 @@
 /* === Global Styles & Background === */
 body {
-    font-family: 'Poppins', sans-serif; /* Nicer font */
+    font-family: 'Poppins', sans-serif; 
     margin: 0;
-    padding: 20px; /* Add padding around everything */
-    min-height: 100vh; /* Ensure gradient covers full height */
-    background: linear-gradient(135deg, #2c3e50 0%, #1a2833 100%); /* Dark Blue/Gray Gradient */
-    background-attachment: fixed; /* Keep gradient fixed during scroll */
+    padding: 20px; 
+    min-height: 100vh; 
+    background: linear-gradient(135deg, #2c3e50 0%, #1a2833 100%); 
+    background-attachment: fixed; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    color: #f0f0f0; /* Light default text color for outside the box */
+    align-items: center; 
+    color: #f0f0f0; 
 }
 
 h1 {
-    color: #ffffff; /* White text */
+    color: #ffffff; 
     text-align: center;
-    margin-top: 20px; /* Adjusted margin */
+    margin-top: 20px; 
     margin-bottom: 10px;
-    font-weight: 300; /* Lighter weight for graceful look */
-    font-size: 2.8em; /* Adjust size as needed */
+    font-weight: 300; 
+    font-size: 2.8em; 
     letter-spacing: 1px;
 }
 
 /* === Instructions Box === */
 .instructions {
-    background-color: rgba(255, 255, 255, 0.08); /* Subtle transparent white */
+    background-color: rgba(255, 255, 255, 0.08); 
     color: #e0e0e0;
     padding: 15px 25px;
-    border-radius: 12px; /* Rounded corners */
+    border-radius: 12px; 
     max-width: 700px;
     width: 90%;
-    margin: 15px auto; /* Center and space out */
+    margin: 15px auto; 
     text-align: center;
     font-size: 0.95em;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -45,35 +45,35 @@ h1 {
 
 /* === Main Content Box === */
 .main-container {
-    background-color: #ffffff; /* White background for the box */
+    background-color: #ffffff; 
     padding: 25px;
-    border-radius: 18px; /* Nicely rounded corners */
-    max-width: 950px; /* Limit width */
-    width: 90%; /* Responsive width */
-    margin: 20px auto; /* Center horizontally, add vertical margin */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Softer shadow */
+    border-radius: 18px; 
+    max-width: 950px; 
+    width: 90%; 
+    margin: 20px auto; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); 
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Important for keeping content clipped */
-    color: #333; /* Dark text INSIDE the white box */
-    min-height: 65vh; /* Give it some minimum height */
+    overflow: hidden; 
+    color: #333; 
+    min-height: 65vh; 
 }
 
 /* === Controls inside the Box === */
 .controls {
-    padding-bottom: 20px; /* Space below controls */
-    border-bottom: 1px solid #eee; /* Separator line */
+    padding-bottom: 20px; 
+    border-bottom: 1px solid #eee; 
     display: flex;
     gap: 12px;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap; 
 }
 
 .controls input[type="url"] {
-    flex-grow: 1;
-    padding: 10px 12px; /* Slightly larger padding */
+    flex-grow: 1; 
+    padding: 10px 12px; 
     border: 1px solid #ccc;
-    border-radius: 8px; /* Rounded input */
+    border-radius: 8px; 
     font-size: 1em;
     min-width: 250px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -85,11 +85,11 @@ h1 {
 }
 
 .controls button {
-    padding: 10px 18px; /* Slightly larger padding */
+    padding: 10px 18px; 
     border: none;
     background-color: #007bff;
     color: white;
-    border-radius: 8px; /* Rounded button */
+    border-radius: 8px; 
     cursor: pointer;
     transition: background-color 0.2s ease;
     font-size: 1em;
@@ -102,20 +102,32 @@ h1 {
 
 /* === Iframe Area === */
 .iframe-container {
-    flex-grow: 1; /* Take remaining vertical space IN THE BOX */
-    /* Removed fixed height - let flexbox handle it */
-    min-height: 400px; /* Minimum height for the frame area */
-    border-radius: 10px; /* Rounded corners for the frame area */
-    overflow: hidden; /* Clip iframe */
-    margin-top: 20px; /* Space from controls */
-    background-color: #f8f9fa; /* Light background behind iframe */
+    flex-grow: 1; 
+    min-height: 400px; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    margin-top: 20px; 
+    background-color: #f8f9fa; 
 }
 
 #content-frame {
     width: 100%;
     height: 100%;
     border: none;
-    display: block; /* Prevents tiny gap below iframe */
+    display: block; 
+}
+
+/* === Full Dump Section === */
+.full-dump {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px; /* Rounded corners */
+    color: white; /* Text color */
+    padding: 15px; /* Padding inside */
+    margin-top: 20px; /* Space from the main area */
+    width: 90%; /* Responsive width */
+    max-width: 950px; /* Limit max width */
+    white-space: pre-wrap; /* Preserve spaces and wrapping */
 }
 
 /* === Warning Text === */
@@ -124,5 +136,5 @@ h1 {
     padding: 10px;
     margin-top: 20px; /* Space above warning */
     font-size: 0.85em;
-    color: #aaa; /* Lighter gray */
+    color: #aaa; 
 }
